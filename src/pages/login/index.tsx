@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory, Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { Button, Space, Input, Toast } from 'antd-mobile'
 import CountDown from '@/components/CountDown'
 import { isPhone } from '@/utils'
@@ -11,7 +11,7 @@ export default function Login() {
   const [code, setCode] = useState('')
   const [disabled, setDisabled] = useState(true)
   const [loading, setLoading] = useState(false)
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const validatePhone = (): Promise<boolean> => {
     return new Promise((resolve, reject) => {
@@ -47,7 +47,7 @@ export default function Login() {
         mobile,
         verificationCode: code,
       });
-      history.replace('/home');
+      navigate('/home', { replace: true });
     } finally {
       setLoading(false)
     }
@@ -88,7 +88,7 @@ export default function Login() {
               <span>微信登录</span>
             </Space>
           </Button>
-          <Link to="/home">直接进入首页</Link>
+          <Link to="/home" replace>直接进入首页</Link>
         </div>
       </div>
     </div>
