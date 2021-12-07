@@ -28,7 +28,7 @@
 
 可在`variables.less`定义less全局变量，方便统一样式的统一管理。
 
-可在`routes/index.ts`配置路由。
+`react-router`使用的是最新v6版本，可在`routes/index.tsx`配置路由，react-router从v5升级到v6可查看[upgrading-from-v5](https://reactrouter.com/docs/en/v6/upgrading/v5#upgrading-from-v5)。如果需要使用v5版本，可使用`react-router-v5`分支。
 
 ## 项目启动
 ```
