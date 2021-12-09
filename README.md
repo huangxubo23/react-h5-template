@@ -2,20 +2,20 @@
 当前H5项目，是由[Create React App](https://github.com/facebook/create-react-app)创建而来。使用`viewport`的移动端适配方案，在编写css时只要根据750px设计稿输入具体的px值即可。如果是其它尺寸的设计稿，可在`webpack.config.js`修改`viewportWidth`的对应设计的值。
 ```js
   require('postcss-px-to-viewport')({
-    unitToConvert: 'px',
-    viewportWidth: 750, // (Number) The width of the viewport.
-    unitPrecision: 5, // (Number) The decimal numbers to allow the REM units to grow to.
-    propList: ['*'],
-    viewportUnit: 'vw',
-    fontViewportUnit: 'vw',
-    selectorBlackList: [],
-    minPixelValue: 1, // (Number) Set the minimum pixel value to replace.
-    mediaQuery: false,
-    replace: true,
-    exclude: undefined,
+    unitToConvert: 'px', // 要转化的单位
+    viewportWidth: 750, // UI设计稿的宽度
+    unitPrecision: 5, // 转换后的精度，即小数点位数
+    propList: ['*'], // 指定转换的css属性的单位，*代表全部css属性的单位都进行转换
+    viewportUnit: 'vw', // 指定需要转换成的视窗单位，默认vw
+    fontViewportUnit: 'vw', // 指定字体需要转换成的视窗单位，默认vw
+    selectorBlackList: [], // 指定不转换为视窗单位的类名
+    minPixelValue: 1, // 默认值1，小于或等于1px则不进行转换
+    mediaQuery: false, // 是否在媒体查询的css代码中也进行转换，默认false
+    replace: true, // 是否转换后直接更换属性值
+    exclude: [/node_modules/], // 设置忽略文件，用正则做目录名匹配
     include: undefined,
-    landscape: false,
-  }),
+    landscape: false, // 是否处理横屏情况
+  })
 ```
 
 ## 技术栈
